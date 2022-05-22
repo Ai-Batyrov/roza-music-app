@@ -1,7 +1,5 @@
 <template>
-   <div
-      v-for="playlist in playlists"
-   >
+   <div v-for="playlist in playlists">
       <MenuButton
          :menu_name="playlist.title"
          :router_link="playlist.title">

@@ -26,11 +26,7 @@ export default {
 </script>
 
 <style scoped lang="less">
-.centering {
-   display: flex;
-   justify-content: center;
-   align-items: center;
-}
+@import "@/assets/css/style.less";
 
 a {
    width: 100%;
@@ -67,6 +63,7 @@ a:hover {
    width: 15rem;
    height: 3rem;
    margin: 0.3rem 0 0.3rem 0;
+   user-select: none;
 }
 
 .icon-div {

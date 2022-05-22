@@ -1,7 +1,7 @@
 <template>
    <div>
       <span>
-         All rights reserved ROZA Inc.
+         All rights reserved <strong>ROZA Inc.</strong>
       </span>
    </div>
 </template>
@@ -12,17 +12,18 @@ export default {
 }
 </script>
 
-<style scoped>
+<style scoped lang="less">
+@import "@/assets/css/style.less";
+
 div {
    width: 100%;
    height: 3rem;
-   display: flex;
-   justify-content: center;
-   align-items: center;
+   .centering();
 }
 
 span {
-   font-family: Montserrat, sans-serif;
-   font-size: 1rem;
+   .global-font();
+   user-select: none;
+   opacity: 0.6;
 }
 </style>

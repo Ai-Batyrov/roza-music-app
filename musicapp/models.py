@@ -1,5 +1,6 @@
 from django.contrib.auth.models import AbstractUser
 from django.db import models
+from django.urls import reverse
 
 
 class User(AbstractUser):
@@ -30,10 +31,18 @@ class Tracks(models.Model):
     artist = models.CharField(max_length=255)
     album = models.ForeignKey(Albums, on_delete=models.CASCADE)
     genres = models.ManyToManyField(Genres)
+    # cover = models.ImageField(upload_to='covers/',
+    #                           default='https://i.pinimg.com/564x/63/77/b9/6377b973d63f875455b450361e6c13fd.jpg')
     file = models.FileField(upload_to='tracks/', default=None)
 
     def __str__(self):
         return self.title
+
+    def get_absolute_url(self):
+        return reverse(
+            'get-tracks',
+            kwargs={'track_id': self.pk}
+        )
 
 
 class Playlists(models.Model):
@@ -48,11 +57,17 @@ class Playlists(models.Model):
 
 class Charts(models.Model):
     title = models.CharField(max_length=255)
-    create_date = models.DateField()
+    create_date = models.DateField(auto_now=True)
     tracks = models.ManyToManyField(Tracks)
 
     def __str__(self):
         return self.title
+
+    def get_absolute_url(self):
+        return reverse(
+            'get-tracks-in-chart',
+            kwargs={'chart_id': self.pk}
+        )
 
 
 class RadioStations(models.Model):
@@ -61,6 +76,9 @@ class RadioStations(models.Model):
 
     def __str__(self):
         return self.title
+
+    def get_absolute_url(self):
+        return reverse('get-radio', kwargs={'radio_id': self.pk})
 
 
 class Podcasts(models.Model):

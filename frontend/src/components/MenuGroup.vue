@@ -21,11 +21,7 @@ export default {
 </script>
 
 <style scoped lang="less">
-.centering {
-   display: flex;
-   justify-content: center;
-   align-items: center;
-}
+@import "@/assets/css/style.less";
 
 .menu-group {
    width: 100%;
