@@ -34,4 +34,12 @@ export default {
 .cover-play-span {
    background-color: #E6ECFF !important;
 }
+
+.p-title {
+   background-color: #b8d2e5 !important;
+}
+
+.p-artist {
+   background-color: #90a4b2 !important;
+}
 </style>

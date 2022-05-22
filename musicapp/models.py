@@ -92,3 +92,6 @@ class Podcasts(models.Model):
 class LikedSongs(models.Model):
     track = models.ForeignKey(Tracks, on_delete=models.CASCADE)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return str(self.track) + ' - ' + str(self.user)

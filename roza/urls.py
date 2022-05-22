@@ -14,6 +14,8 @@ urlpatterns = [
     path('api/v1/playlists/', PlaylistsAPIView.as_view(), name='playlists-view'),
     path('api/v1/radiostations/', RadioStationsAPIView.as_view(), name='radio-stations-view'),
     path('api/v1/radiostation/<int:radio_id>', RadioAPIView.as_view(), name='get-radio'),
+    path('api/v1/likedsongs/', LikedSongsAPIView.as_view(), name='get-liked-songs'),
+    path('api/v1/search/<str:text>', SearchAPIView.as_view(), name='search-result'),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
