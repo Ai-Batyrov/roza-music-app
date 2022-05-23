@@ -23,7 +23,7 @@ class ChartInstanceSerializer(serializers.ModelSerializer):
 class PlaylistsSerializer(serializers.ModelSerializer):
     class Meta:
         model = Playlists
-        fields = ('id', 'title')
+        fields = '__all__'
 
 
 class RadioStationsSerializer(serializers.ModelSerializer):
@@ -35,7 +35,7 @@ class RadioStationsSerializer(serializers.ModelSerializer):
 class LikedSongsSerializer(serializers.ModelSerializer):
     class Meta:
         model = LikedSongs
-        fields = '__all__'
+        fields = ('track',)
 
 
 class AlbumsSerializer(serializers.ModelSerializer):

@@ -1,0 +1,66 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'musicapp/css/style.css' %}">
+    <title>roza</title>
+</head>
+<body>
+<header>
+    <div class="inner">
+        <div class="logo">
+            <div class="logo-inner">
+                <div>
+                    <span>
+                         ROZA
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="header_menu">
+            <ul>
+                {% for title, url_name in header_menu.items %}
+                    <li>
+                        <a href="{% url url_name %}">
+                            {{ title }}
+                        </a>
+                    </li>
+                {% endfor %}
+            </ul>
+
+        </div>
+        <div class="user-div">
+            <div class="user-div-inner">
+                {% if request.user.is_authenticated %}
+                    <span class="auth-span">
+                        <span>
+                            {{ user.username }}
+                        </span>
+                        <a href="{% url 'logout' %}">
+                            <img src="{% static 'musicapp/img/logout.svg' %}" alt="logout-icon">
+                        </a>
+                    </span>
+                {% else %}
+                    <span class="auth-span">
+                        <a href="{% url 'register' %}">Register</a>
+                        <a href="{% url 'login' %}">Login</a>
+                    </span>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</header>
+<main>
+    {% block main %}
+
+    {% endblock %}
+</main>
+</body>
+</html>

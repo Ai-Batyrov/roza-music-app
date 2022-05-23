@@ -3,7 +3,7 @@
       <div class="logo-inner">
          <div>
             <span>
-              roza
+              ROZA
             </span>
          </div>
       </div>
@@ -48,8 +48,8 @@ export default {
          padding: 0;
          margin: 0;
          font-family: Montserrat, sans-serif;
-         font-size: 2.3rem;
-         font-weight: 500;
+         font-size: 2rem;
+         font-weight: 600;
          text-align: center;
          color: #f4f4f4;
          user-select: none;

@@ -3,7 +3,7 @@
       <div class="inner">
          <div class="top">
             <div class="cover">
-               <!--            <img src alt="audio-cover"/>-->
+               <img :src="current.cover" alt="audio-cover"/>
             </div>
             <div class="info">
                <p class="title">{{ current.title }}</p>
@@ -61,12 +61,14 @@
 .cover {
    width: 100%;
    height: 80%;
-   border-radius: 0.5rem;
    background-color: #b8d2e5;
+   border-radius: 0.5rem;
+
 
    img {
       width: 100%;
       height: 100%;
+      border-radius: 0.5rem;
    }
 }
 

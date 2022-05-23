@@ -23,7 +23,6 @@ export default {
                 .get('/api/v1/track/' + track_id)
                 .then(response => {
                     state.playlist.push(response.data)
-                    console.log(state.playlist)
                 })
                 .catch(error => {
                     console.log(error)
@@ -36,6 +35,7 @@ export default {
                 "id": 2,
                 "title": "Mi Gente (Dj Mario rmx)",
                 "artist": "J Balvin ft Willy William",
+                "cover": "https://lmusic.kz/images/cover/j-balvin-willy-william-mi-gente-madness-remix.jpeg",
                 "file": "http://127.0.0.1:8000/media/tracks/Mi_Gente_-_J_Balvin_Ft_Willy_Williams__Extended_Mix_Dj_Mario_Andretti_.mp3",
                 "album": 3,
                 "genres": [

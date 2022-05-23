@@ -1,6 +1,7 @@
 <template>
    <div class="control">
       <img :src="iconUrl" alt="control-icon"/>
+      <span>{{ text }}</span>
    </div>
 </template>
 
@@ -8,7 +9,8 @@
 export default {
    name: "Control",
    props: {
-      iconUrl: String
+      iconUrl: String,
+      text: String
    }
 }
 </script>

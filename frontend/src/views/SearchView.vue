@@ -1,5 +1,5 @@
 <template>
-   <div class="page">
+   <div class="search-page">
       <div class="headline">
          <h2>Search</h2>
       </div>
@@ -8,19 +8,17 @@
          <button
             type="submit"
             class="search-button"
-            @click="search"
+            @click="search(inputText)"
          >Search
          </button>
       </div>
       <div class="search-results">
-         <Suspense>
-            <!--            <template #default>-->
-            <!--               <PlaylistItem/>-->
-            <!--            </template>-->
-            <template #default>
-               <PlaylistItemSkeleton/>
-            </template>
-         </Suspense>
+         <PlaylistItem
+            v-for="result in allTracksList"
+            :title="result.title"
+            :artist="result.artist"
+            :track="result.id"
+         />
       </div>
    </div>
 </template>
@@ -35,15 +33,29 @@ export default {
    components: {PlaylistItemSkeleton, PlaylistItem},
    data() {
       return {
-         inputText: String,
-         resultList: []
+         inputText: "",
+         resultList: [],
+         allTracksList: []
       }
    },
+   async mounted() {
+      await this.getAllTracks()
+   },
    methods: {
-      async search(text) {
-         await axios
-            .get('/api/v1/search-song/' + text)
-            .then()
+      search(text) {
+
+      },
+      getAllTracks() {
+         return new Promise(resolve => {
+            axios
+               .get('api/v1/get/all-tracks')
+               .then(response => {
+                  resolve(this.allTracksList = response.data)
+               })
+               .catch(error => {
+                  console.log(error)
+               })
+         })
       }
    }
 }
@@ -52,7 +64,7 @@ export default {
 <style lang="less" scoped>
 @import "@/assets/css/style.less";
 
-.page {
+.search-page {
    width: 100%;
    height: 100%;
    display: flex;
@@ -77,6 +89,9 @@ export default {
 .search-results {
    width: 100%;
    height: 80%;
+   display: flex;
+   flex-direction: column;
+   padding: 1rem 0 0 0;
 }
 
 input {

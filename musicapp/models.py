@@ -30,10 +30,8 @@ class Tracks(models.Model):
     title = models.CharField(max_length=255)
     artist = models.CharField(max_length=255)
     album = models.ForeignKey(Albums, on_delete=models.CASCADE)
-    genres = models.ManyToManyField(Genres)
-    # cover = models.ImageField(upload_to='covers/',
-    #                           default='https://i.pinimg.com/564x/63/77/b9/6377b973d63f875455b450361e6c13fd.jpg')
-    file = models.FileField(upload_to='tracks/', default=None)
+    cover = models.ImageField(upload_to='covers/')
+    file = models.FileField(upload_to='tracks/')
 
     def __str__(self):
         return self.title

@@ -3,7 +3,7 @@
       <router-link :to="router_link">
          <div class="icon-div">
             <span class="menu-item-icon">
-               <slot></slot>
+               <img :src="iconUrl" alt="menu-icon-url">
             </span>
          </div>
          <div class="menu-name">
@@ -20,7 +20,8 @@ export default {
    name: "MenuButton",
    props: {
       menu_name: String,
-      router_link: String
+      router_link: String,
+      iconUrl: String
    }
 }
 </script>
@@ -45,8 +46,8 @@ a:hover {
 .router-link-active {
    background-color: #16659D;
 
-   slot {
-      color: #E6ECFF;
+   .menu-item-icon > img {
+      filter: invert(1);
    }
 
    .menu-name {

@@ -1,0 +1,144 @@
+.auth-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background-color: #E6ECFF;
+}
+
+.card {
+    width: 40rem;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    background-color: white;
+    border-radius: 0.5rem;
+    box-shadow: 2px 2px 5px 0 rgba(28, 137, 209, 0.3);
+}
+
+.card > form {
+    width: 90%;
+    height: auto;
+    /*margin: 1rem 0;*/
+}
+
+h1 {
+    margin: 1.5rem 0;
+    padding: 0;
+}
+
+
+form > .field > input, select {
+    height: 2rem;
+    font-family: "Poppins", sans-serif;
+    border-radius: 0.3rem;
+    border: #7683C8 1px solid;
+}
+
+form > .field > ul {
+    margin: 0;
+    padding: 0;
+}
+
+form > .field > #id_file, #id_cover, #id_photo {
+    width: 100%;
+    border: none;
+}
+
+#id_file > input,
+#id_cover > input,
+#id_photo > input {
+    background-color: #7683C8;
+}
+
+#id_file[type="file" i],
+#id_cover[type="file" i],
+#id_photo[type="file" i] {
+    color: #1c89d1;
+}
+
+#id_file[type="file"]::-webkit-file-upload-button,
+#id_cover[type="file"]::-webkit-file-upload-button,
+#id_photo[type="file"]::-webkit-file-upload-button {
+    background-color: #7683C8;
+    color: whitesmoke;
+    font-family: inherit;
+    border: none;
+    padding: 0.7rem;
+    border-radius: 0.3rem;
+    cursor: pointer;
+    transition: background-color 0.4s ease-in-out;
+}
+
+#id_file[type="file"]::-webkit-file-upload-button:hover,
+#id_cover[type="file"]::-webkit-file-upload-button:hover,
+#id_photo[type="file"]::-webkit-file-upload-button:hover {
+    background-color: #9eadff;
+}
+
+.btn-div {
+    width: 100%;
+    height: auto;
+    padding: 0.5rem 0;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+button {
+    width: 10rem;
+    height: 3rem;
+    border: none;
+    border-radius: 0.3rem;
+    color: white;
+    font-family: Poppins, sans-serif;
+    font-size: 1rem;
+    background-color: #7683C8;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+button:hover {
+    background-color: #9eadff;
+}
+
+button:active {
+    background-color: #229ced;
+}
+
+
+.upload-message {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    animation: 1s ease 1 opacity-fade;
+}
+
+
+.upload-message > div {
+    margin: 2rem 0;
+}
+
+.upload-message > div > img {
+    width: 120px;
+    height: 120px;
+}
+
+.upload-message > span {
+    font-size: 1.5rem;
+}
+
+@keyframes opacity-fade {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
