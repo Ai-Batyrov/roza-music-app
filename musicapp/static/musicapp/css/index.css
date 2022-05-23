@@ -31,18 +31,40 @@ h3 {
 }
 
 .img {
-    width: 90%;
+    width: 50%;
     height: 90%;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.button-div {
-    width: 8rem;
-    height: 5rem;
+.img > img {
+    width: 45rem;
 }
 
-a {
+.button-div {
+    width: 20rem;
+    height: 10rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
+.button-div > a {
+    width: 13rem;
+    height: 3rem;
+    background-color: #229ced;
+    color: #E6ECFF;
+    font-size: 1.5rem;
+    text-decoration: none;
+    transition: all 0.3s ease-in-out;
+    user-select: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0.3rem;
+}
+
+.button-div > a:hover {
+    background-color: #9eadff;
 }

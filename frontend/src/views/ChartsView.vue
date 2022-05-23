@@ -6,19 +6,18 @@
          </div>
          <div class="charts-list-div">
          <span class="arrow">
-            <img :src="arrow_1" alt="arrow-left"/>
          </span>
             <div class="cards-div">
                <div class="card" v-for="chart in charts" v-bind:id="chart.id">
                   <ChartCard
                      :title="chart.title"
-                     :create_time="chart.creat_date"
+                     :create_time="chart.create_date"
                      :chart_id="chart.id"
+                     :cover="chart.cover"
                   />
                </div>
             </div>
             <span class="arrow">
-            <img :src="arrow_2" alt="arrow-right"/>
          </span>
          </div>
       </div>

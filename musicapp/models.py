@@ -18,12 +18,20 @@ class Albums(models.Model):
     def __str__(self):
         return self.title
 
+    class Meta:
+        verbose_name = 'Album'
+        verbose_name_plural = 'Albums'
+
 
 class Genres(models.Model):
     title = models.CharField(max_length=255)
 
     def __str__(self):
         return self.title
+
+    class Meta:
+        verbose_name = 'Genre'
+        verbose_name_plural = 'Genres'
 
 
 class Tracks(models.Model):
@@ -42,6 +50,10 @@ class Tracks(models.Model):
             kwargs={'track_id': self.pk}
         )
 
+    class Meta:
+        verbose_name = 'Track'
+        verbose_name_plural = 'Tracks'
+
 
 class Playlists(models.Model):
     title = models.CharField(max_length=255)
@@ -52,10 +64,15 @@ class Playlists(models.Model):
     def __str__(self):
         return self.title
 
+    class Meta:
+        verbose_name = 'Playlist'
+        verbose_name_plural = 'Playlists'
+
 
 class Charts(models.Model):
     title = models.CharField(max_length=255)
     create_date = models.DateField(auto_now=True)
+    cover = models.ImageField(upload_to='charts/covers')
     tracks = models.ManyToManyField(Tracks)
 
     def __str__(self):
@@ -66,6 +83,10 @@ class Charts(models.Model):
             'get-tracks-in-chart',
             kwargs={'chart_id': self.pk}
         )
+
+    class Meta:
+        verbose_name = 'Chart'
+        verbose_name_plural = 'Charts'
 
 
 class RadioStations(models.Model):
@@ -78,6 +99,10 @@ class RadioStations(models.Model):
     def get_absolute_url(self):
         return reverse('get-radio', kwargs={'radio_id': self.pk})
 
+    class Meta:
+        verbose_name = 'RadioStation'
+        verbose_name_plural = 'RadioStations'
+
 
 class Podcasts(models.Model):
     title = models.CharField(max_length=255)
@@ -86,6 +111,10 @@ class Podcasts(models.Model):
     def __str__(self):
         return self.title
 
+    class Meta:
+        verbose_name = 'Podcast'
+        verbose_name_plural = 'Podcasts'
+
 
 class LikedSongs(models.Model):
     track = models.ForeignKey(Tracks, on_delete=models.CASCADE)
@@ -93,3 +122,7 @@ class LikedSongs(models.Model):
 
     def __str__(self):
         return str(self.track) + ' - ' + str(self.user)
+
+    class Meta:
+        verbose_name = 'LikedSong'
+        verbose_name_plural = 'LikedSongs'

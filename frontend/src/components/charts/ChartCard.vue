@@ -2,7 +2,9 @@
    <div class="card">
       <div class="card-inner">
          <div class="top">
-            <span class="cover"></span>
+            <span class="cover">
+               <img :src="cover" alt="chart-cover"/>
+            </span>
             <span class="title">{{ title }}</span>
          </div>
          <div class="bottom">
@@ -31,7 +33,8 @@ export default {
    props: {
       title: String,
       create_time: String,
-      chart_id: Number
+      chart_id: Number,
+      cover: String
    }
 }
 </script>
@@ -68,6 +71,12 @@ export default {
       height: 70%;
       border-radius: 0.5rem;
       background: #E6ECFF;
+
+      img {
+         width: 100%;
+         height: 100%;
+         border-radius: 0.5rem;
+      }
    }
 
    .title {

@@ -1,11 +1,13 @@
 <template>
    <div class="logo">
       <div class="logo-inner">
-         <div>
-            <span>
-              ROZA
-            </span>
-         </div>
+         <a href="http://127.0.0.1:8000/">
+            <div>
+               <span>
+                  ROZA
+               </span>
+            </div>
+         </a>
       </div>
    </div>
 </template>
@@ -21,6 +23,11 @@ export default {
    display: flex;
    justify-content: flex-start;
    align-items: center;
+}
+
+a {
+   margin: 0;
+   padding: 0;
 }
 
 .logo {
